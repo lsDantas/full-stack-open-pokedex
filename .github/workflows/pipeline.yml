@@ -34,3 +34,5 @@ jobs:
           heroku_app_name: "arcane-beach-43112"
           heroku_email: ${{secrets.APP_EMAIL}}
           healthcheck: "https://arcane-beach-43112.herokuapp.com/health"
+          checkstring: "ok"
+          rollbackonhealthcheckfailed: true
