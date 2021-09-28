@@ -40,3 +40,8 @@ jobs:
           healthcheck: "https://arcane-beach-43112.herokuapp.com/health"
           checkstring: "ok"
           rollbackonhealthcheckfailed: true
+      - uses: actions/checkout@v2
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.33.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
