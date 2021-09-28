@@ -1,0 +1,28 @@
+name: Slack Integration
+
+on:
+  push:
+    branches: 
+      - main
+  pull_request:
+    branches: [main]    
+    types: [opened, synchronize]
+
+jobs:
+  slack_integration:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: 8398a7/action-slack@v3
+        with:
+          status: custom
+          fields: workflow,job,commit,repo,ref,author,took
+          custom_payload: |
+            {
+              attachments: [{
+                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                fields: '{{ job.status}}' === 'success ? 'repo,message' : 'repo,message,commit,author,action,eventName,ref,workflow,job,took',
+              }]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()
