@@ -3,7 +3,7 @@ name: Deployment pipeline
 on:
   push:
     branches: 
-      - master
+      - main
 
 jobs:
   simple_deployment_pipeline:
@@ -33,4 +33,3 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "enigmatic-shelf-66426"
           heroku_email: ${{secrets.APP_EMAIL}}
-          branch: "master"
