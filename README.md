@@ -1,8 +1,6 @@
-# Full Stack open CI/CD
+# Full Stack Open CI/CD
 
-This repository is used for the CI/CD module of the Full stack open course
-
-Fork the repository to complete course exercises
+This repository contains my submissions for the CI/CD module of the Full Stack Open 2021 course. For my personal full stack app with a fully-built CI/CD pipeline have a look at [this repository](https://github.com/lsDantas/Full-Stack-Open-Part-11). 
 
 ## Commands
 
